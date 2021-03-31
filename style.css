@@ -1,0 +1,283 @@
+/*boiler plate project set-up (removing margin + padding, border box, root font-size, color...)*/
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+/*boiler plate project set-up */
+html {
+    box-sizing: border-box;
+    /*root font-size defined; 1 rem = 10px, since 62.5% of 16px (web default font size) = 10px*/
+    font-size: 62.5%;
+}
+
+.section {
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(./res/coffee-shop.jpg);
+    background-size: cover;
+    position: relative;
+}
+
+.todo {
+    height: 75%;
+    width: 75%;
+    background-color: rgba(255,255,255,0.9);
+    border-radius: 80px;
+    border: 1px solid rgb(226, 226, 226);
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.2);
+
+    justify-content: space-evenly;
+}
+
+.todo__input-row {
+    height: max-content;
+    width: 100%;
+
+    justify-content: center;
+}
+
+.todo__input {
+    height: 40px;
+    width: 60%;
+    font-size: 16px;
+    padding-left: 15px;
+    border: 1px solid rgb(128, 207, 169);
+    border-right: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.todo__input:focus {
+    border: 1px solid rgb(72, 241, 160);
+}
+
+.todo__btn-sqr,
+.todo__btn,
+.todo__input {
+    outline: none;
+}
+
+.todo__btn-sqr {
+    height: 40px;
+    width: max-content;
+    padding: 10px;
+    font-size: 18px;
+    background-color: #fff;
+    border: 1px solid rgb(128, 207, 169);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.todo__btn-sqr:hover {
+    background-color: rgb(128, 207, 169);
+    color: #fff;
+}
+
+.todo__btn-sqr:active {
+    background-color: #fff;
+    color: rgb(128, 207, 169);
+}
+
+.todo__btn-sqr--clear {
+    border-radius: 5px;
+}
+
+.todo__items {
+    height: 60%;
+    width: 100%;
+    overflow-y: auto;
+
+    justify-content: flex-start;
+}
+
+/* width */
+.todo__items::-webkit-scrollbar {
+    width: 10px;
+}
+  
+  /* Track */
+.todo__items::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+  
+  /* Handle */
+.todo__items::-webkit-scrollbar-thumb {
+    background: rgb(128, 207, 169);
+    border-radius: 10px;
+}
+  
+/* Handle on hover */
+.todo__items::-webkit-scrollbar-thumb:hover {
+    background: rgb(84, 138, 112);
+}
+
+.todo__item {
+    height: 50px;
+    width: 100%;
+    margin: 20px 0px;
+    padding: 0px 40px;
+
+    justify-content: space-between;
+}
+
+.todo__btn-row {
+    height: 100%;
+    width: 10%;
+
+    justify-content: space-between;
+}
+
+.todo__btn {
+    height: max-content;
+    width: max-content;
+    border: none;
+    background-color: transparent;
+}
+
+.todo__btn:hover .todo__complete {
+    fill: rgb(95, 153, 125);
+}
+
+.todo__btn:hover .todo__edit {
+    fill: rgb(88, 145, 180);
+}
+
+.todo__btn:hover .todo__delete {
+    fill: palevioletred;
+}
+
+.todo__btn:active .todo__complete {
+    fill: rgb(128, 207, 169);
+}
+
+.todo__btn:active .todo__edit {
+    fill: rgb(113, 184, 228);
+}
+
+.todo__btn:active .todo__delete {
+    fill: rgb(314, 50, 99);
+}
+
+.todo__icon {
+    height: 25px;
+    width: 25px;
+}
+
+.todo__complete {
+    fill: rgb(128, 207, 169);
+}
+
+.todo__edit {
+    fill: rgb(113, 184, 228);
+}
+
+.todo__delete {
+    fill: rgb(314, 50, 99);
+}
+
+.todo__input,
+.todo__h1,
+.todo__h2,
+.todo__btn-sqr {
+    font-family: 'Heebo';
+    color: rgb(71, 71, 71);
+}
+
+.todo__h1 {
+    font-size: 35px;
+    font-weight: 400;
+    font-style: italic;
+    text-transform: uppercase;
+}
+
+.todo__h2 {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+}
+
+.transition {
+    transition: all 0.25s;
+}
+
+.hidden {
+    opacity: 0%;
+    visibility: hidden;
+}
+
+.popup {
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.popup__container {
+    background-color: #fff;
+    border-radius: 50px;
+
+    justify-content: space-evenly;
+}
+
+#popup-edit-input {
+    border: 1px solid rgb(128, 207, 169);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 90%;
+}
+
+#popup-edit-btn,
+#popup-error-btn {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.popup__container--edit {
+    height: 30%;
+    width: 35%;
+}
+
+.popup__container--error {
+    height: 20%;
+    width: 30%;
+}
+
+.popup__h1 {
+    font-family: 'Heebo';
+    font-weight: 400;
+    font-size: 24px;
+    color: rgb(128, 207, 169);
+}
+
+.animation {
+    animation: nudge 0.2s;
+    animation-iteration-count: 4;
+}
+
+@keyframes nudge {
+    0% { transform: translateY(-5px); }
+    25% { transform: translateY(0px); }
+    50% { transform: translateY(5px); }
+    100% { transform: translateY(0px); }
+}
